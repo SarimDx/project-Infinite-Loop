@@ -323,6 +323,7 @@ border-radius: 15px;
     background-size: cover;
     position: relative;
     background-attachment: fixed;
+    overflow: scroll;
 }
 .testimonials::before {
     content: "";
@@ -427,3 +428,93 @@ font-weight: 1;
     background-color: var(--writing-main-color);
 }
 /* ? End  Testimonials */
+
+
+/* ? Start Gallery */
+.gallery {
+    position: relative;
+    padding: 100px 0;
+    height: 100vh;
+    overflow: scroll;
+}
+.gallery .container .main_text h3 {
+   color: #3377AA;
+   text-align: center;
+   padding-bottom: 20px;
+   font-size: 42px;
+   font-weight: 1;
+}
+.gallery .container .main_text p {
+   text-align: center;
+   padding-bottom: 40px;
+   font-size: 15px;
+   line-height: 1.8;
+   color: #707070;
+}
+.gallery .container .boxes_img {
+    display: grid;
+    grid-template-columns: repeat(auto-fill , minmax(200px , 1fr));
+    grid-column-gap:15px;
+    grid-row-gap:20px;
+}
+.gallery .container .boxes_img .box_img  {
+    position: relative;
+    margin: 0 auto;
+}
+.gallery .container .boxes_img .box_img img {
+    width: 220px;
+}
+.gallery .container .boxes_img .box_img::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 220px;
+    height: 99%;
+    background-color: rgba(116, 54, 116, 0.329);
+    opacity: 0%;
+    transition: 0.7s;
+}
+.gallery .container .boxes_img .box_img::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 1%;
+    width: 220px;
+    height: 0%;
+    background-color: var(--light-main-color);
+    opacity: 0%;
+    transition: 0.7s;
+}
+.gallery .container .boxes_img .box_img:hover:after {
+    height: 3%;
+    opacity: 100%;
+}
+.gallery .container .boxes_img .box_img:hover::before {
+    opacity: 100%;
+}
+.gallery .container .boxes_img .box_img .text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(50% ,-50%);
+    opacity: 0%;
+    transition: 0.7s;
+}
+.gallery .container .boxes_img .box_img:hover .text {
+    transform: translate( -50% ,50%);
+    opacity: 100%;
+}
+@media (max-width:992px) {
+    .gallery .container .boxes_img .box_img:hover .text {
+        transform: translate( -75% ,75%);
+    }
+}
+.gallery .container .boxes_img .box_img .text p {
+color: var(--writing-main-color);
+padding-bottom: 10px ;
+}
+.gallery .container .boxes_img .box_img .text h3 {
+color: var(--writing-main-color);
+}
+/* ? End Gallery */
